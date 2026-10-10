@@ -1,0 +1,70 @@
+# 看戏峰哥 · Spectator Feng
+
+[简体中文](README.zh-CN.md) · [English](README.md) · [MIT 开源许可](LICENSE)
+
+以峰哥亡命天涯为原型的冷面看戏卡通：经典黑毛线帽、灰色户外装、成人身材，背手围观，捋胡子思考。
+
+美式成人情景喜剧的 2D 卡通画风：粗黑线、平涂色彩，与 [薄肌孙哥 · Thin-Muscle Sun](https://github.com/Yixiang-Li/thin-muscle-sun-pet) 属于同一个卡通宇宙。
+
+![九种动画完整预览](previews/all-states.gif)
+
+## 下载与使用
+
+- [下载透明精灵图 PNG](https://github.com/Yixiang-Li/spectator-feng-pet/raw/refs/heads/main/assets/spritesheet.png)
+- [完整动画视频](previews/all-states.mp4)
+- [十六方向循环](previews/look-loop.gif)
+- [全部动作帧](docs/contact-sheet.png) · [方向总览](docs/directions.png)
+
+PNG 可用于支持 v2 精灵图的 Pets 创建流程。下载图片后，在启用 Pets 插件的聊天中附上它，并说：**“用这张精灵图创建一个叫「看戏峰哥」的自定义宠物，并选中它。”** 宠物会在你自己的账号创建。本仓库提供资源和布局说明，导入需要对应的 Pets 创建工具。
+
+## 冷面看戏，捋胡子思考
+
+![代表动作](previews/states/running.gif)
+
+![四张动作静帧](previews/motion-stills.png)
+
+## 动画布局
+
+透明 PNG 尺寸为 **1536 × 2288**：8 列 × 11 行，每格 **192 × 208**。共有 73 个有效帧，另有 15 个完全透明的空格。行列索引从 0 开始，详细数据见 [manifest.json](manifest.json)。
+
+| 行 | 状态 | 帧数 | 动作 |
+| --- | --- | ---: | --- |
+| 0 | `idle` | 6 | 呼吸和眨眼 |
+| 1 | `running-right` | 8 | 向右快步走 |
+| 2 | `running-left` | 8 | 向左快步走 |
+| 3 | `waving` | 4 | 克制地挥手打招呼 |
+| 4 | `jumping` | 5 | 起跳和落地 |
+| 5 | `failed` | 8 | 垂头和扶额 |
+| 6 | `waiting` | 6 | 摊手等待输入 |
+| 7 | `running` | 6 | 捋下巴胡子思考 |
+| 8 | `review` | 6 | 凑近检查并点头 |
+| 9 | 看向不同方向 | 8 | 顺时针 000°–157.5° |
+| 10 | 看向不同方向 | 8 | 顺时针 180°–337.5° |
+
+`000` 是上，`090` 是屏幕右侧，`180` 是下，`270` 是屏幕左侧。`running` 是专注工作时的动作；左右移动分别使用自己的动画。九种动作各自的 GIF 在 [previews/states](previews/states)。
+
+## 源文件与改造
+
+- [source/base.png](source/base.png)：人物主造型。
+- [source/strips](source/strips)：最终采用的动作条与方向条。
+- [prompts](prompts)：实际采用的生成提示词，以及派生动作说明。
+- [scripts/render_previews.py](scripts/render_previews.py)：从最终 PNG 生成预览的可移植脚本。
+
+画面由 OpenAI 图像生成工具绘制，经 Pets 创建流程完成提取、注册、组装和验证。仓库包含预览脚本；Pets 服务及插件内部工具属于独立依赖。相同提示词不保证重新生成相同画面。人物参考照片只保留来源链接。
+
+使用 Python 3.10 或更新版本，即可生成预览并提取 57 个常规动作帧：
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/render_previews.py assets/spritesheet.png --output-dir generated-previews
+```
+
+## 验证结果
+
+发布的 PNG 与已验证的宠物文件字节一致，结构、质量与 Pets 上传前检查均通过。跳跃最高离地 **38 px**，落地基线差 **0 px**。文件摘要及原检查结果见 [docs/validation.json](docs/validation.json)。
+
+337.5° 的姿势接近正面抬头，盲审对水平偏向判断不明确；结合完整循环复核后保留为中间姿态警告。四个主要方向均通过。
+
+## 许可与来源
+
+本仓库原创生成图、提示词、文档与预览脚本采用 [MIT 开源许可](LICENSE)。人物为非官方幽默卡通演绎。详见 [来源与致谢](docs/CREDITS.md)。

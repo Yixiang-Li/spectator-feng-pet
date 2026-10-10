@@ -1,0 +1,24 @@
+Create one horizontal animation strip for ChatGPT pet `feng-ge`, state `running-right`.
+
+Use the attached canonical base for identity. Use the attached layout guide only for slot count, spacing, centering, and padding; do not draw the guide.
+
+Output exactly 8 full-body frames in one left-to-right row on flat pure user-selected #00FFFF. Treat the row as 8 invisible equal-width slots: one centered complete pose per slot, evenly spaced, with no overlap, clipping, empty slots, labels, or borders.
+
+Identity: same pet in every frame: Feng Ge Wangming Tianya in classic black ribbed knit beanie with small blank pale patch and no logo, gray zip-front lightly padded outdoor jacket, black trousers and dark walking shoes. Own photo-based long-oval face, small narrow Asian half-closed eyes, level eyebrows, broad rounded nose, noticeable ears, wide thin-lipped mouth, sparse moustache and goatee at chin with mostly clean cheeks. About five-head-tall adult proportions, naturally sloping shoulders and long relaxed torso, ordinary stocky middle-aged build without a spherical belly, not short toddler. Calm faintly weary deadpan expression; understated spectator humor, not cute exaggerated smile. No props, text or effects. Feet and torso anchor while head pitches and yaws, nose and physical eyes lead together, face stays visible.. Preserve silhouette, face, proportions, markings, palette, material, style, and props.
+Style: Pet-safe sprite: compact full-body mascot, readable in a 192x208 cell, clear silhouette, simple face, stable palette/materials, and crisp edges for chroma-key extraction. Style `flat-vector`: Flat vector-style mascot with simple geometric forms, crisp color areas, clean outline, and minimal shading. User style notes: 2D American adult sitcom animation, Family Guy-like clean bold black outlines and flat cel colors matching Sun drawing medium only; Feng own facial features and adult physique must be preserved, no chibi template.
+Animation continuity: keep apparent pet scale and baseline stable within the row unless the state itself intentionally changes vertical position, such as `jumping`. Move the pose within the slot instead of redrawing the pet larger or smaller frame to frame.
+
+State action: Dragging-right loop: show directional movement to the right through body and limb poses only.
+
+State requirements:
+- Show directional drag movement to the right through body, limb, and prop movement only.
+- The row must unmistakably face and travel right.
+- The movement cadence must alternate visibly across the 8 frames instead of repeating one nearly static stride.
+- Do not draw speed lines, dust clouds, floor shadows, motion trails, or detached motion effects.
+
+Clean extraction: crisp opaque edges, safe padding, no scenery, text, guide marks, checkerboard, shadows, glows, motion blur, speed lines, dust, detached effects, stray pixels, or chroma-key colors inside the pet.
+
+Precise edit of input image 5, the first eight-frame WALKING draft. Keep the eight characters and every head, beanie, face, torso, jacket, hands, cyan background, position and scale exactly as drawn. Correct ONLY THE LEG POSITIONS AND LEG SHADING IN FRAMES 3 AND 7 so the walk actually alternates.
+In frame 1 the visible foreground leg has its foot on the RIGHT. Frame 3 must have that same visible foreground leg's foot on the LEFT. Specifically redraw frame 3's NEAR TROUSER LEG to angle DOWN-LEFT from the near hip; put its dark shoe behind the body on the LEFT at the shared ground line. Draw the FAR TROUSER LEG angle DOWN-RIGHT from far hip; its foot ahead on the RIGHT at the same ground line. Repeat this exchanged-leg pose in frame 7. The foreground leg is always CHARCOAL #444444 and the background leg always BLACK #1C1C1C; normal flat cel shading, no new markings. Apply consistent charcoal-versus-black shading also to the other figures. Thus frame 1 has CHARCOAL leg/rightfoot ahead + BLACK leg/leftfoot behind; frame 3 has CHARCOAL leg/leftfoot behind + BLACK leg/rightfoot ahead. Frames 5 and 7 repeat these opposite contacts. Foreground leg must occlude background leg where they intersect at hips. Keep the existing opposite arm swings: near arm back for 1 and 5; near arm ahead for 3 and 7. Even frames 2,4,6,8 are feet-crossing passing stances.
+This is an adult man's brisk WALK, no knee lift, airborne sprint or running jumps. Both odd-frame feet touch a common level ground line; don't draw the line or shadows. Output all EIGHT full-body complete spaced figures in one cyan #00FFFF row, no clipping or effects. Classic Feng face remains narrow-eyed, sparse moustache and pointed chin goatee, black beanie and gray jacket. Sun ref is STYLE ONLY.
+Critical visible test: the CHARCOAL leg extends RIGHT in frames 1/5 and LEFT in frames 3/7. Do not return four copies of the same contact pose.
